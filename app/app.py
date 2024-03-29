@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from crud import *
 from db_config import db
+import time
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -156,6 +157,7 @@ def delete_existing_transaction_breakdown(breakdown_id):
         return str(e), 404
 
 if __name__ == '__main__':
+    time.sleep(5)
     with app.app_context():
         db.create_all()
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=80)
