@@ -2,7 +2,7 @@ import unittest
 import requests
 
 class TestAPI(unittest.TestCase):
-    base_url = 'http://127.0.0.1:5000/api'
+    base_url = 'https://calculator-service-pk-embedded-solution.koyeb.app/api'
     
     def test_transaction_api(self):
         # Test creating a new transaction
