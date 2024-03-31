@@ -89,7 +89,7 @@ def delete_product(product_id, session):
 # Transaction Endpoints
 def get_transactions(session):
     transactions = Transaction.query.all()
-    return [{'id': transaction.id, 'mobile_number': transaction.mobile_number, 'transaction_amount': transaction.transaction_amount, 'transaction_type': transaction.transaction_type, 'cash_in_out': transaction.cash_in_out, 'person_name': transaction.person_name} for transaction in transactions]
+    return [{'id': transaction.id, 'mobile_number': transaction.mobile_number, 'transaction_amount': transaction.transaction_amount, 'transaction_type': transaction.transaction_type, 'cash_in_out': transaction.cash_in_out, 'person_name': transaction.person_name, 'created_at': transaction.created_at} for transaction in transactions]
 
 def create_transaction(data, session):
     transaction = Transaction(mobile_number=data['mobile_number'], transaction_amount=data['transaction_amount'], transaction_type=data['transaction_type'], cash_in_out=data['cash_in_out'], person_name=data['person_name'] if 'person_name' in data else None)
