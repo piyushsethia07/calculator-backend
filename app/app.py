@@ -2,10 +2,12 @@ from flask import Flask, request, jsonify
 from crud import *
 from db_config import db
 import time
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db.init_app(app)
+CORS(app)
 
 @app.route('/health', methods=['GET'])
 def health_api():
